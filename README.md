@@ -75,7 +75,6 @@ movie-recommendation-system/
 5. **Recommendation** - Returns top N most similar movies
 
 ## Screenshots
-![Tampilan Utama Aplikasi](data/assets/ui_ml.png)   
+![main view](data/assets/ui_ml.png)   
 ## Author
 Fawwaz Wijdan
-s
