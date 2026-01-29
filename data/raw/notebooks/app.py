@@ -357,8 +357,12 @@ st.markdown("""
 def load_data():
     """Load recommendation model and movie data"""
     try:
-        movies = pd.read_csv('../processed/movie_list.csv')
-        similarity = sp.load_npz('../processed/similarity_model.npz')
+        # Use Path to get the correct directory
+        current_dir = Path(__file__).parent
+        processed_dir = current_dir / '../processed'
+        
+        movies = pd.read_csv(processed_dir / 'movie_list.csv')
+        similarity = sp.load_npz(processed_dir / 'similarity_model.npz')
         return movies, similarity
     except FileNotFoundError as e:
         st.error("Error: Model files not found. Run 02_recommendation_system notebook first.")
@@ -472,7 +476,8 @@ def get_recommendations(movie_title, top_n=10):
 
 with st.sidebar:
     # Sidebar image
-    st.image("garry.jpg", use_container_width=True)
+    image_path = Path(__file__).parent / "garry.jpg"
+    st.image(str(image_path), use_container_width=True)
     
     st.markdown("""
     <div style="text-align: center; padding: 15px 0;">
